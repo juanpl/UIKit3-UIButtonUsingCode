@@ -36,17 +36,39 @@ class ViewController: UIViewController {
         return button
     }()
     
+    private let swiftBetaButton3: UIButton = {
+        var configuration = UIButton.Configuration.bordered()
+        configuration.title = "Susbcribe to SwiftBeta"
+        configuration.titleAlignment = .center
+        configuration.subtitle = "Support the channel"
+        configuration.image = UIImage(systemName: "play.circle.fill")
+        configuration.imagePadding = 12
+        configuration.imagePlacement = .top
+        configuration.buttonSize = .large
+        configuration.baseBackgroundColor = .systemPurple
+        configuration.baseForegroundColor = .white
+        
+        let button = UIButton(type: .system)
+        button.configuration = configuration
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(swiftBetaButton1)
         view.addSubview(swiftBetaButton2)
+        view.addSubview(swiftBetaButton3)
         
         NSLayoutConstraint.activate([
             swiftBetaButton1.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             swiftBetaButton1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             swiftBetaButton2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            swiftBetaButton2.topAnchor.constraint(equalTo: swiftBetaButton1.bottomAnchor, constant: 8)
+            swiftBetaButton2.topAnchor.constraint(equalTo: swiftBetaButton1.bottomAnchor, constant: 8),
+            
+            swiftBetaButton3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            swiftBetaButton3.topAnchor.constraint(equalTo: swiftBetaButton2.bottomAnchor, constant: 8)
         ])
         // Do any additional setup after loading the view.
     }
